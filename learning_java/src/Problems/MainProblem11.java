@@ -1,9 +1,6 @@
 package Problems;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
@@ -48,5 +45,16 @@ public class MainProblem11 {
     LocalDateTime isoToPatternWithHours = LocalDateTime.parse("20/04/2020 09:10",dtFormatterWithHours);
     System.out.println(isoToPattern);
     System.out.println(isoToPatternWithHours);
+
+    //displaying your formatted date
+    DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate localDate1 = LocalDate.parse("2022-08-10");
+    System.out.println(localDate1.format(formatterHour));
+
+    //Displaying formatted date on Instant (Global w/ timezone)
+    //to customize your date with Instant type you MUST pass withZone method
+    DateTimeFormatter fm2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+    Instant globalHour = Instant.parse("2022-08-20T01:30:26.000Z");
+    System.out.println(fm2.format(globalHour));
   }
 }
