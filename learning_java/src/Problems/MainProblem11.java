@@ -56,5 +56,13 @@ public class MainProblem11 {
     DateTimeFormatter fm2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
     Instant globalHour = Instant.parse("2022-08-20T01:30:26.000Z");
     System.out.println(fm2.format(globalHour));
+
+    //Converting instant global time to a localdate
+    LocalDate date04 = LocalDate.parse("2022-08-01");
+    Instant dateInst = Instant.parse("2022-08-01T01:08:20Z");
+    LocalDate resultFormat = LocalDate.ofInstant(dateInst, ZoneId.systemDefault());
+    LocalDateTime resultFormatTime = LocalDateTime.ofInstant(dateInst, ZoneId.of("Portugal"));
+    System.out.println(resultFormat);
+    System.out.println(resultFormatTime);
   }
 }
