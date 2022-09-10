@@ -18,16 +18,12 @@ public class Worker {
     return hourContract;
   }
 
-  public void setHourContract(List<HourContract> hourContract) {
-    this.hourContract = hourContract;
-  }
-
   public void addContract(HourContract contract) {
-
+      this.hourContract.add(contract);
   }
 
   public void removeContract(HourContract contract) {
-
+    this.hourContract.remove(contract);
   }
 
   public Double income(Integer year, Integer month) {
@@ -36,7 +32,7 @@ public class Worker {
     for(HourContract contract : hourContract) {
       calendar.setTime(contract.getDate());
       int calendar_year = calendar.get(Calendar.YEAR);
-      int calendar_month = calendar.get(Calendar.MONTH);
+      int calendar_month = 1 + calendar.get(Calendar.MONTH);
       if(year == calendar_year && month == calendar_month) {
         sum += contract.totalValue();
       }
