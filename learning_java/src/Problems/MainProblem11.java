@@ -1,8 +1,15 @@
 package Problems;
 
+import java.sql.Array;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 public class MainProblem11 {
   public static void main(String[] args) {
@@ -64,5 +71,30 @@ public class MainProblem11 {
     LocalDateTime resultFormatTime = LocalDateTime.ofInstant(dateInst, ZoneId.of("Portugal"));
     System.out.println(resultFormat);
     System.out.println(resultFormatTime);
+
+    //Calculus Hour and date
+    DateTimeFormatter dateFormatterSunday = DateTimeFormatter.ofPattern("dd/MM/yyyy").withZone(ZoneId.systemDefault());
+    //today's day
+    LocalDate today = LocalDate.now(ZoneId.systemDefault());
+    //count today's day
+    ZonedDateTime todayStart = today.atStartOfDay(ZoneId.systemDefault());
+    //first day of the year
+    ZonedDateTime firstOfTheYear = todayStart.with(TemporalAdjusters.firstDayOfYear());
+    //first day of the next year
+    ZonedDateTime zdtFirstOfNextYear = firstOfTheYear.with(TemporalAdjusters.firstDayOfNextYear());
+    //first sunday of this year
+    ZonedDateTime firstSundayOfThisYear = firstOfTheYear.with(TemporalAdjusters.dayOfWeekInMonth(1, DayOfWeek.SUNDAY));
+    //first 53 sundays
+    List<ZonedDateTime> sundays = new ArrayList<>(53);
+    //variable changes while loop
+    ZonedDateTime zdt = firstSundayOfThisYear;
+    while(zdt.isBefore(zdtFirstOfNextYear)) {
+      //adding a date to a list
+      sundays.add(zdt);
+      //printing the formatted list
+      System.out.println("Sundays #" + sundays.size() + " : " + dateFormatterSunday.format(zdt));
+      //adding a week to count
+      zdt = zdt.plusWeeks(1);
+    }
   }
 }
