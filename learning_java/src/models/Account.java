@@ -41,6 +41,6 @@ public class Account {
     return this.balance += amount;
   }
   public double withdraw(double amount) {
-    return this.balance -= amount;
+    return this.balance -= amount + 5.0;
   }
 }

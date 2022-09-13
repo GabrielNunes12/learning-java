@@ -21,5 +21,8 @@ public class MainProblem16 {
     BusinessAccount bcAccount = (BusinessAccount) new Account();
 
     //instanceof to check if an object is an instance of something
+    if(account instanceof Account) {
+
+    }
   }
 }
