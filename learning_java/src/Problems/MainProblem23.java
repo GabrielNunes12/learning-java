@@ -20,7 +20,25 @@ public class MainProblem23 {
     Date checkInDate = simpleDateFormat.parse(scanner.nextLine());
     System.out.println("Check-out-date DD/MM/YYYY: ");
     Date checkOutDate = simpleDateFormat.parse(scanner.nextLine());
-    Reservation reservation = new Reservation(roomNumber, checkInDate, checkOutDate);
-    System.out.println(reservation.toString());
+    System.out.println(handleReservationResponse(checkInDate,checkOutDate,roomNumber));
+  }
+  public static String handleReservationResponse (Date checkIn, Date checkOut, Integer roomNumber) throws ParseException {
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    Scanner scanner = new Scanner(System.in);
+    if(!checkOut.after(checkIn)) {
+      System.out.println("Error in reservation: Check-out must date must be after check-in date!");
+    } else {
+      Reservation reservation = new Reservation(roomNumber, checkIn, checkOut);
+      System.out.println(reservation.toString());
+      scanner.nextLine();
+      System.out.println("Enter data to update the reservation: ");
+      System.out.println("Check-in-date DD/MM/YYYY: ");
+      checkIn = simpleDateFormat.parse(scanner.nextLine());
+      System.out.println("Check-out-date DD/MM/YYYY: ");
+      checkOut = simpleDateFormat.parse(scanner.nextLine());
+      reservation.updateDates(checkIn,checkOut);
+      return reservation.toString();
+    }
+    return null;
   }
 }
