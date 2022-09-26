@@ -1,0 +1,9 @@
+* Inversion control (Generic)
+it is a design pattern, consists taking away all instantiation class's responsibility
+
+* Dependency injection (way to realize inversion control)
+it's a way to instantiate outside a class and injected to a parent's component.
+could be implemented in many ways, such as:
+* Constructor();
+* Instantiation class: Builder or a factory function
+* Container / framework
