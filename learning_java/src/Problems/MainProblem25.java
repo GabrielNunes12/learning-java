@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class MainProblem25 {
   public static void main(String[] args)  {
     Scanner scanner = new Scanner(System.in);
-    PrintService printService = new PrintService();
+    PrintService<Integer> printService = new PrintService<>();
     System.out.println("How many values: ");
     int values = scanner.nextInt();
     for(int indexValue = 0; indexValue < values; indexValue++) {

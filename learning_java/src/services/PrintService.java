@@ -3,16 +3,16 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrintService {
-  List<Integer> integers = new ArrayList<>();
+public class PrintService<T> {
+  List<T> integers = new ArrayList<>();
 
   public PrintService() {
   }
 
-  public void addValue(Integer valueToBeAdded) {
+  public void addValue(T valueToBeAdded) {
     this.integers.add(valueToBeAdded);
   }
-  public int findFirst() {
+  public T findFirst() {
     return this.integers.get(0);
   }
 
