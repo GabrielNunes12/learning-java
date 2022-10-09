@@ -1,0 +1,24 @@
+//SET
+// Can not have repeated values
+// retrieving, inserting and removing values it is quick af
+// Elements doesn't have indexes
+// Intersection, Union and difference
+// Set<T>
+// main implementation:
+  // HashSet -> (O(1) in hashtable) unordered list
+  // TreeSet -> (O(log(n)) dark-tree) and ordered by compareTo or comparator
+  //LinkedHashSet -> You can access by values inserted order
+//Important methods:
+  //.add(obj), remove(obj), contains(obj)
+    //based in hashCode and equals
+    // if equals and hashCode does not exist, use pointers to compare
+  // clear()
+  // size();
+  // removeIf(predicate);
+  // addAll(other) -> union: add elements in other arrangement, without repetition
+  // retainAll(other) -> intersection: Remove from arrange that doesn't include in other arrange
+  // removeAll(other) -> difference: remove from arrange all elements contained in other arrange
+//How Set<T> equality testing?
+    // in your Set's class has a hashCode and equals implemented, then Set will use it.
+    // if not, then it'll use pointers to do so.
+    // String, Boolean, Double, Integer has natively hashCode and equals
