@@ -1,0 +1,21 @@
+//MAP<Key,Value>
+// collection Key and value
+    //can't have repeated key
+    // element indexed by key
+    // access, insertion and removing elements are extremely quick
+//use:
+    // localstorage, cookies
+//implementation
+    //HashMap(); -> so fast (O(1))
+    //TreeMap(); -> its not fast (O(log(n)))
+    //LinkedHashMap(); -> its not fast but not slow
+
+//Important methods
+     //Put(key, value), remove(key), containsKey(key), get(key);
+     // in your Set's class has a hashCode and equals implemented, then Map will use it.
+     // if not, then it'll use pointers to do so.
+     // String, Boolean, Double, Integer has natively hashCode and equals
+     //clear();
+     //size();
+     //keySet(); -> returns a new Set<Key>;
+     //values(); -> returns a Collection<Value>
