@@ -1,0 +1,5 @@
+Alex,25000
+Barbara,3000
+Nicholas,4000
+Allie,2100
+Barry,300
